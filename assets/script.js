@@ -1,11 +1,15 @@
 //Set Variables
 var startBtn = document.getElementById("startBtn");
 var infoBox = document.getElementById("infoBox");
-var infoTitle = document.getElementById("info-title");
+var answerBox = document.getElementById("answerBox")
+var infoTitle = document.getElementById("infoTitle");
 var timer = document.getElementById("timer");
-var highscores = document.getElementById("highscores")
+var highscores = document.getElementById("highscores");
+var resultDisplay = document.getElementById("resultDisplay");
 
 var q = 0;
+var r = 0;
+var w = 0;
 
 var questions = [{
     question: "What does HTML stand for ?",
@@ -40,25 +44,51 @@ var questions = [{
 
     ],
     answer: "Hypertext Preprocessor"
+},
+
+{
+    question: "What tag is used to define an image – or add an image – to an HTML page?",
+    choices: ["<table>",
+        "<meta",
+        "<img>",
+        "<div>"
+
+    ],
+    answer: "<img>"
+},
+
+{
+    question: "What is the format called that is used for storing and transporting data?",
+    choices: ["Syntax",
+        "JSON",
+        "HTML",
+        "Font"
+
+    ],
+    answer: "JSON"
 }
+
 
 ]
 
 startBtn.addEventListener("click", function () {
-    builtQuestionCard()
-    console.log(questions[q].question);
+    builtQuestionCard();
+    
+    
 })
 function builtQuestionCard() {
-    var answerBox = document.getElementById("answerBox")
+    
 
-    answerBox.innerHTML = ""
-    infoTitle.textContent = questions[q].question
+    answerBox.innerHTML = "";
+    infoTitle.textContent = questions[q].question;
     questions[q].choices.forEach(function (choice) {
         var button = document.createElement("button");
-        button.textContent = choice
-        button.setAttribute("value", choice)
-        button.onclick = evaulateAnswer
-        answerBox.appendChild(button)
+        button.textContent = choice;
+        button.setAttribute("value", choice);
+        button.onclick = evaulateAnswer;
+        answerBox.appendChild(button);
+        startBtn.remove();
+        
 
 
     })
@@ -67,18 +97,31 @@ function builtQuestionCard() {
 
 function evaulateAnswer() {
     if (this.value === questions[q].answer) {
-        console.log("correct");
+        r++;
+        
+       
+        resultDisplay.textContent = "You are CORRECT!!! You have " + r + " RIGHT " + w + " WRONG OUT OF 5";
+
     } else {
-        console.log("wrong");
+        w++;
+        resultDisplay.textContent = "You are CORRECT!!! You have " + r + " RIGHT " + w + " WRONG OUT OF 5";
 
     }
     q++;
     if (q === questions.length) {
-        console.log("end game");
+        infoTitle.textContent = "GAME OVER!!!";
+        resultDisplay.textContent = "Congratulation! You have "  + r + " RIGHT and " + w + " WRONG out of 5 questions";
+        
+        answerBox.innerHTML = "";
+        var submitBtn = document.createElement("button");
+        submitBtn.textcontent = "Submit Highscores",
+        answerBox.appendChild(submitBtn);
+
     } else {
         builtQuestionCard();
     }
 }
+
 
 
 /*var questions = [
