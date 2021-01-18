@@ -8,18 +8,35 @@
 body{
     background: #007bff;
 }
+.highscores, .timer {
+    width: 50%;
+    padding: 25px 25px;
+    font-weight: 600;
 
-.navBar {
-    b
 }
+
+.highscores {
+    float:left;
+    cursor: pointer;
+    
+}
+.timer {
+    float: right;
+    
+    text-align: right;
+    
+}
+
 
 .infoBox {
     position: absolute;
-    top: 25% ;
+    top: 50% ;
     left: 50%;
     transform: translate(-50%, -50%);
     background: #fff;
     border-radius: 5px;
+    
+    align-items: center;
 
 
 }
@@ -29,9 +46,10 @@ body{
 
 
 .infoTitle{
-    height: 60px;
+    height: fit-content;
     width: 100%;
     display: flex;
+    justify-content: center;
     align-items: center;
     text-transform: uppercase;
     padding: 0 35px;
@@ -43,6 +61,8 @@ body{
     padding: 15px 35px;
     margin: 5px 0;
     font-size: 20px;
+    font-weight: 300;
+    color: #007bff;
 
 }
  
@@ -51,6 +71,7 @@ body{
 .start-btn{
     height: 60px;
     display: flex;
+    justify-content: center;
     align-items: center;
     padding: 0 35px;
     border-top: 1px solid lightgrey;
