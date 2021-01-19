@@ -127,12 +127,15 @@ function evaulateAnswer() {
 
         var nameLabel = document.createElement("label");
         nameLabel.textContent = "Enter INITIALS: "
-        nameLabel.setAttribute("style", ";");
+        nameLabel.setAttribute("style", "font-size: 25px;");
         answerBox.appendChild(nameLabel);
 
         var nameInput = document.createElement("input");
-        nameInput.setAttribute("style", "width: 70%;");
+       // nameInput.setAttribute("type", Text );
+        nameInput.setAttribute("id", "userInput");
+        nameInput.setAttribute("style", "width: 70%; font-size: 25px; text-transform: uppercase");
         answerBox.appendChild(nameInput);
+        
 
         
 
@@ -141,7 +144,26 @@ function evaulateAnswer() {
         submitBtn.textContent = "Submit",
         submitBtn.setAttribute("style", "margin: 0px 5px; height: 40px; width: 30%; border: 1px solid #007bff; background: #007bff; border-radius: 5px;color: #fff; font-size: 16px; font-weight: 500;cursor: pointer;");
         answerBox.setAttribute("style", "display:flex");
-            answerBox.appendChild(submitBtn);
+        answerBox.appendChild(submitBtn);
+        
+        //add click event to capture player intials and time left
+        submitBtn.addEventListener("click", function(){
+            
+            var score = secondsLeft * r 
+            var userInput = document.querySelector("#userInput").value;
+
+            var highscore = {userInput, score};
+            var highscores = JSON.parse(localStorage.getItem("highscores") )|| [];
+            highscores.push(highscore)
+
+            localStorage.setItem("highscores", JSON.stringify(highscores));
+
+
+           
+           console.log(highscores);
+           
+           window.location.href = "highscores.html";
+        });
 
 
     } else {
@@ -164,6 +186,7 @@ function setTime() {
     }, 1000);
 
 }
+
 
 
 

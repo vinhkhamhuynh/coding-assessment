@@ -69,7 +69,7 @@ body{
  
 
 
-.startBtn{
+.startBtn, .homeBtn{
     height: 60px;
     display: flex;
     justify-content: center;
@@ -77,9 +77,10 @@ body{
     padding: 0 35px;
     border-top: 1px solid lightgrey;
 }
-.infoBox .startBtn button{
+.infoBox .startBtn button, a{
    
     margin: 0 5px;
+    text-decoration: none;
     height: 40px;
     width: 100px;
     border: 1px solid #007bff;

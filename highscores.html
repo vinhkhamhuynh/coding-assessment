@@ -4,33 +4,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assessment</title>
+    <title>Highscores Page</title>
 
     <link rel="stylesheet" href="assets/style.css">
 
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
         rel="stylesheet">
-    
+
 </head>
 
 <body>
-    <nav class="navBar">
-    <div class="highscores" id="highscores">View Highscores</div>
-    <div class="timer">Time: <span id="timer">1 Minute</span> </div>
-</nav>
+
+
 
 
     <div class="infoBox" id="infoBox">
 
-        <h1 class="infoTitle" id="infoTitle">Coding Assessment</h1>
-        <h2 class="answerBox" id="answerBox">Player will need to choose a correct answer to each question.  Wrong answer will reduce timer by 10 second.  Good Luck!!!</h2>
+        <h1 class="infoTitle" id="infoTitle">Highscores !!! </h1>
+        <ol class="answerBox" id="scoresBox"></ol>
 
-        <div class="startBtn" id="resultDisplay"><button id="startBtn">Start Quiz</button></div>
+        <div class="startBtn" id="resultDisplay"><button id="homeBTn"><a  href="index.html">Home</a></button></div>
 
     </div>
 
-    <script src="assets/script.js"></script>
+    <script>
+        function printHighscores() {
+    var highscores = JSON.parse(localStorage.getItem("highscores") )|| [];
+
+    var scoresBox = document.querySelector("#scoresBox");
+
+    highscores.sort(function(a,b){
+        return b.score - a.score
+    });
+    console.log(highscores);
+    highscores.forEach(score => {
+    var li = document.createElement("li");
+    li.textContent = score.userInput + " " + score.score;
+    scoresBox.appendChild(li);
+
+    });
+    
+}
+printHighscores();
+
+
+    </script>
 </body>
 
 </html>
