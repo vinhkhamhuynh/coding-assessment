@@ -10,6 +10,7 @@ var resultDisplay = document.getElementById("resultDisplay");
 var q = 0;
 var r = 0;
 var w = 0;
+var secondsLeft = 60;
 
 var questions = [{
     question: "What does HTML stand for ?",
@@ -73,6 +74,7 @@ var questions = [{
 
 startBtn.addEventListener("click", function () {
     builtQuestionCard();
+    setTime();
     resultDisplay.textContent = "Let's PLAY!! You have 5 QUESTIONS";
 
 
@@ -111,6 +113,7 @@ function evaulateAnswer() {
 
     } else {
         w++;
+        secondsLeft -= 10;
         resultDisplay.textContent = "You are CORRECT!!! You have " + r + " RIGHT " + w + " WRONG OUT OF 5";
 
     }
@@ -146,7 +149,19 @@ function evaulateAnswer() {
     }
 }
 
-function timer() {
+//timer function to run countdown 
+function setTime() {
+    var timerInterval = setInterval(function() {
+        secondsLeft--;
+        timer.textContent = secondsLeft + " seconds left!!";
+
+        if (secondsLeft === 0 || q === questions.length) {
+            clearInterval(timerInterval);
+            var timerResult = document.createElement("div");
+            timerResult.textContent ="You have " + secondsLeft + " seconds left!!";
+            answerBox.appendChild(timerResult);
+        }
+    }, 1000);
 
 }
 
