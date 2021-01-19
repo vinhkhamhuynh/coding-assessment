@@ -27,7 +27,7 @@ var questions = [{
     question: "What does CSS stand for?",
     choices: ["Common Style Sheet",
         "Colorful Style Sheet",
-        "Coputer Style Sheet",
+        "Computer Style Sheet",
         "Cascading Style Sheet"
 
     ],
@@ -73,11 +73,12 @@ var questions = [{
 
 startBtn.addEventListener("click", function () {
     builtQuestionCard();
-    
-    
+    resultDisplay.textContent = "Let's PLAY!! You have 5 QUESTIONS";
+
+
 })
 function builtQuestionCard() {
-    
+
 
     answerBox.innerHTML = "";
     infoTitle.textContent = questions[q].question;
@@ -85,22 +86,28 @@ function builtQuestionCard() {
         var button = document.createElement("button");
         button.textContent = choice;
         button.setAttribute("value", choice);
+        button.setAttribute("style", "height: 60px; width:100% ; font-size:15px;  justify-content:center;align-items:center; padding: 5px; margin: 5px; cursor: pointer; border-radius: 5px;border: 1px solid #007bff;");
         button.onclick = evaulateAnswer;
         answerBox.appendChild(button);
         startBtn.remove();
-        
+
 
 
     })
 
 }
+//set style for result div
+resultDisplay.setAttribute("style", "color: #007bff; font-weight: 400; font-size: 20px;");
+
 
 function evaulateAnswer() {
     if (this.value === questions[q].answer) {
         r++;
-        
-       
+
+
         resultDisplay.textContent = "You are CORRECT!!! You have " + r + " RIGHT " + w + " WRONG OUT OF 5";
+        
+        
 
     } else {
         w++;
@@ -110,51 +117,38 @@ function evaulateAnswer() {
     q++;
     if (q === questions.length) {
         infoTitle.textContent = "GAME OVER!!!";
-        resultDisplay.textContent = "Congratulation! You have "  + r + " RIGHT and " + w + " WRONG out of 5 questions";
-        
+        infoTitle.setAttribute("style", "color: red;");
+        resultDisplay.textContent = "Congratulation! You have " + r + " RIGHT and " + w + " WRONG out of 5 questions";
+
         answerBox.innerHTML = "";
+
+        var nameLabel = document.createElement("label");
+        nameLabel.textContent = "Enter INITIALS: "
+        nameLabel.setAttribute("style", ";");
+        answerBox.appendChild(nameLabel);
+
+        var nameInput = document.createElement("input");
+        nameInput.setAttribute("style", "width: 70%;");
+        answerBox.appendChild(nameInput);
+
+        
+
+
         var submitBtn = document.createElement("button");
-        submitBtn.textcontent = "Submit Highscores",
-        answerBox.appendChild(submitBtn);
+        submitBtn.textContent = "Submit",
+        submitBtn.setAttribute("style", "margin: 0px 5px; height: 40px; width: 30%; border: 1px solid #007bff; background: #007bff; border-radius: 5px;color: #fff; font-size: 16px; font-weight: 500;cursor: pointer;");
+        answerBox.setAttribute("style", "display:flex");
+            answerBox.appendChild(submitBtn);
+
 
     } else {
         builtQuestionCard();
     }
 }
 
+function timer() {
 
-
-/*var questions = [
-    {
-        "q1": "What does HTML stand for ?" = [{
-            "opt": "Hyper Text Preprocessor",
-            "opt": "Hyper Text Markup Language",
-            "opt": "Hyper Tool Multi Language",
-            "opt": "Hyper Text Multiple Language",
-            "ans1": "Hyper Text Markup Language"
-        }]
-    },
-
-    {
-        "q2": "What does CSS stand for?" = [{
-            "opt": "Common Style Sheet",
-            "opt": "Colorful Style Sheet",
-            "opt": "Coputer Style Sheet",
-            "opt": "Cascading Style Sheet",
-            "ans1": "Cascading Style Sheet"
-        }]
+}
 
 
 
-
-
-    }
-
-/* What does PHP stand for?
-Hypertext Preprocessor
-Hypertext Programming
-Hypertext Preprogramming
-Hometext Preprocessor
-
-What does
-*/

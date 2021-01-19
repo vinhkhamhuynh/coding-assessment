@@ -9,6 +9,7 @@ body{
     background: #007bff;
 }
 .highscores, .timer {
+    color: #fff;
     width: 50%;
     padding: 25px 25px;
     font-weight: 600;
@@ -58,8 +59,8 @@ body{
     border-bottom: 1px solid lightgrey;
 }
 .answerBox{
-    padding: 15px 35px;
-    margin: 5px 0;
+    padding: 10px;
+    
     font-size: 20px;
     font-weight: 300;
     color: #007bff;
