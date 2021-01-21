@@ -179,6 +179,47 @@ function setTime() {
             var timerResult = document.createElement("div");
             timerResult.textContent = "You FINISHED the game with  " + secondsLeft + " seconds left!!";
             answerBox.appendChild(timerResult);
+            infoTitle.textContent = "GAME OVER!!!";
+            infoTitle.setAttribute("style", "color: red;");
+            resultDisplay.textContent = "Congratulation! You have " + r + " RIGHT and " + w + " WRONG out of 5 questions";
+    
+            answerBox.innerHTML = "";
+    
+            var nameLabel = document.createElement("label");
+            nameLabel.textContent = "Enter INITIALS: "
+            nameLabel.setAttribute("style", "display: inline-block; width: 100%; height: 25%; margin-bottom:5px; font-size: 15px;");
+            answerBox.appendChild(nameLabel);
+    
+            var nameInput = document.createElement("input");
+            // nameInput.setAttribute("type", Text );
+            nameInput.setAttribute("id", "userInput");
+            nameInput.setAttribute("style", "margin-bottom: 5px; width: 100%; height: 25%; font-size: 15px; text-transform: uppercase");
+            answerBox.appendChild(nameInput);
+    
+            var submitBtn = document.createElement("button");
+            submitBtn.textContent = "Submit";
+            submitBtn.setAttribute("class","submitBtn");
+            submitBtn.setAttribute("style", "height: 40px; width: 30%; border: 1px solid #007bff; background: #007bff; border-radius: 5px;color: #fff; font-size: 15px; font-weight: 500;cursor: pointer;");
+            //answerBox.setAttribute("style", "display:flex");
+            answerBox.appendChild(submitBtn);
+    
+            //add click event to capture player intials and time left
+            submitBtn.addEventListener("click", function () {
+    
+                var score = secondsLeft * r
+                var userInput = document.querySelector("#userInput").value;
+    
+                var highscore = { userInput, score };
+                var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
+                highscores.push(highscore)
+    
+                localStorage.setItem("highscores", JSON.stringify(highscores));
+    
+                window.location.href = "highscores.html";
+            });
+    
+    
+        
         }
     }, 1000);
 
