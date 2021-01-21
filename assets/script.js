@@ -88,7 +88,7 @@ function builtQuestionCard() {
         var button = document.createElement("button");
         button.textContent = choice;
         button.setAttribute("value", choice);
-        button.setAttribute("style", "height: 60px; width:100% ; font-size:15px;  justify-content:center;align-items:center; padding: 5px; margin: 5px; cursor: pointer; border-radius: 5px;border: 1px solid #007bff;");
+        button.setAttribute("style", "height: 60px; width:100% ; font-size: 12px;  justify-content:center; align-items:center; padding: 5px; margin: 5px; cursor: pointer; border-radius: 5px; border: 1px solid #007bff;");
         button.onclick = evaulateAnswer;
         answerBox.appendChild(button);
         startBtn.remove();
@@ -99,7 +99,7 @@ function builtQuestionCard() {
 
 }
 //set style for result div
-resultDisplay.setAttribute("style", "color: #007bff; font-weight: 400; font-size: 20px;");
+resultDisplay.setAttribute("style", "color: #007bff; font-weight: 400; ");
 
 
 function evaulateAnswer() {
@@ -108,8 +108,8 @@ function evaulateAnswer() {
 
 
         resultDisplay.textContent = "You are CORRECT!!! You have " + r + " RIGHT " + w + " WRONG OUT OF 5";
-        
-        
+
+
 
     } else {
         w++;
@@ -127,42 +127,39 @@ function evaulateAnswer() {
 
         var nameLabel = document.createElement("label");
         nameLabel.textContent = "Enter INITIALS: "
-        nameLabel.setAttribute("style", "font-size: 25px;");
+        nameLabel.setAttribute("style", "display: inline-block; width: 100%; height: 25%; margin-bottom:5px; font-size: 15px;");
         answerBox.appendChild(nameLabel);
 
         var nameInput = document.createElement("input");
-       // nameInput.setAttribute("type", Text );
+        // nameInput.setAttribute("type", Text );
         nameInput.setAttribute("id", "userInput");
-        nameInput.setAttribute("style", "width: 70%; font-size: 25px; text-transform: uppercase");
+        nameInput.setAttribute("style", "margin-bottom: 5px; width: 100%; height: 25%; font-size: 15px; text-transform: uppercase");
         answerBox.appendChild(nameInput);
-        
 
-        
+
+
 
 
         var submitBtn = document.createElement("button");
-        submitBtn.textContent = "Submit",
-        submitBtn.setAttribute("style", "margin: 0px 5px; height: 40px; width: 30%; border: 1px solid #007bff; background: #007bff; border-radius: 5px;color: #fff; font-size: 16px; font-weight: 500;cursor: pointer;");
-        answerBox.setAttribute("style", "display:flex");
+        submitBtn.textContent = "Submit";
+        submitBtn.setAttribute("class","submitBtn");
+        submitBtn.setAttribute("style", "height: 40px; width: 30%; border: 1px solid #007bff; background: #007bff; border-radius: 5px;color: #fff; font-size: 15px; font-weight: 500;cursor: pointer;");
+        //answerBox.setAttribute("style", "display:flex");
         answerBox.appendChild(submitBtn);
-        
+
         //add click event to capture player intials and time left
-        submitBtn.addEventListener("click", function(){
-            
-            var score = secondsLeft * r 
+        submitBtn.addEventListener("click", function () {
+
+            var score = secondsLeft * r
             var userInput = document.querySelector("#userInput").value;
 
-            var highscore = {userInput, score};
-            var highscores = JSON.parse(localStorage.getItem("highscores") )|| [];
+            var highscore = { userInput, score };
+            var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
             highscores.push(highscore)
 
             localStorage.setItem("highscores", JSON.stringify(highscores));
 
-
-           
-           console.log(highscores);
-           
-           window.location.href = "highscores.html";
+            window.location.href = "highscores.html";
         });
 
 
@@ -173,14 +170,14 @@ function evaulateAnswer() {
 
 //timer function to run countdown 
 function setTime() {
-    var timerInterval = setInterval(function() {
+    var timerInterval = setInterval(function () {
         secondsLeft--;
         timer.textContent = secondsLeft + " seconds left!!";
 
         if (secondsLeft === 0 || q === questions.length) {
             clearInterval(timerInterval);
             var timerResult = document.createElement("div");
-            timerResult.textContent ="You have " + secondsLeft + " seconds left!!";
+            timerResult.textContent = "You FINISHED the game with  " + secondsLeft + " seconds left!!";
             answerBox.appendChild(timerResult);
         }
     }, 1000);

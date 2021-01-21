@@ -1,4 +1,4 @@
-* {
+                        * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -7,6 +7,9 @@
 
 body{
     background: #007bff;
+}
+.navBar {
+    display: flex;
 }
 .highscores, .timer {
     color: #fff;
@@ -28,7 +31,9 @@ body{
     
 }
 
-
+li {
+    text-transform: uppercase;
+}
 .infoBox {
     position: absolute;
     top: 50% ;
@@ -36,7 +41,7 @@ body{
     transform: translate(-50%, -50%);
     background: #fff;
     border-radius: 5px;
-    
+    width: 60%;
     align-items: center;
 
 
@@ -59,15 +64,18 @@ body{
     border-bottom: 1px solid lightgrey;
 }
 .answerBox{
-    padding: 10px;
+    padding: 20px;
     
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 300;
     color: #007bff;
 
 }
  
-
+#userInput {
+    padding-top: 5px;
+    height: 25%;
+}
 
 .startBtn, .homeBtn{
     height: 60px;
@@ -91,4 +99,30 @@ body{
     font-weight: 500;
     cursor: pointer;
     
+}
+
+@media screen and (max-width: 768px) {
+    .infoTitle {
+        width: 80%;
+    }
+    .infoTitle { 
+        font-size: 25px;
+
+    }
+
+    
+}
+
+@media screen and (max-width: 375px) {
+    .infoTitle {
+        width: 80%;
+    }
+    .infoTitle { 
+        font-size: 13px;
+    }
+    
+    .startBtn {
+        font-size: 11px;
+    }
+  
 }

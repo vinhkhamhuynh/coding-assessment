@@ -37,9 +37,10 @@
     highscores.sort(function(a,b){
         return b.score - a.score
     });
-    console.log(highscores);
+    
     highscores.forEach(score => {
     var li = document.createElement("li");
+    
     li.textContent = score.userInput + " " + score.score;
     scoresBox.appendChild(li);
 
