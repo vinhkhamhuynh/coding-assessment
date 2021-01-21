@@ -1,6 +1,14 @@
 # coding-assessment
 
 
+
+## Project Overview
+
+
+For this project, I made a timed quiz on JavaScript fundamentals. After taken the quiz players' scores will be stores and compared.
+
+
+
 ## Assessment Rules:
 
 1. Player has 60 seconds to finish the quiz.
@@ -9,82 +17,17 @@
 4. Score then is calculated base on number of correct question answered * number of seconds left.
 5. Score then get save to local storage and display on separate page. 
 
-## User Story
-
-```
-AS A coding boot camp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
-```
-
-## Acceptance Criteria
-
-```
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and my score
-```
-
-## Mock-Up
-
-The following animation demonstrates the application functionality:
-
-![A user clicks through an interactive coding quiz, then enters initials to save the high score before resetting and starting over.](./Assets/04-web-apis-homework-demo.gif)
-
-## Grading Requirements
-
-This homework is graded based on the following criteria: 
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria.
-
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository contains application code.
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the homework instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality readme file with description, screenshot, and link to deployed application.
 
 ## Review
 
-You are required to submit BOTH of the following for review:
+Link to Github and functional URL
 
-* The URL of the functional, deployed application.
+* Functional URL: 
+https://vinhkhamhuynh.github.io/coding-assessment/
 
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
+* GitHub repository URL , with a unique name and a readme describing the project.
+https://github.com/vinhkhamhuynh/coding-assessment
 
 ---
 
-© 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+© 2021
